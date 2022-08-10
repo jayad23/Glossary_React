@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import Welcome from './components/Welcome/Welcome';
+import Glossary from "./components/Glossary/Glossary"
+import { glossary } from "./assets/data/glossary";
 import './App.css';
+import { useSelectedComponent } from "./hooks/useSelectedComponent";
 
 function App() {
+  const { selectedComponent, componentShowHandler} = useSelectedComponent()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Welcome/>
+      <Glossary
+        weeks={glossary.weeks}
+        topics={glossary.data}
+        event={componentShowHandler} 
+      />
+      {
+        selectedComponent
+      }
     </div>
   );
 }
