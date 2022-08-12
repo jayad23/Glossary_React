@@ -1,5 +1,6 @@
 import { useState } from "react"
 import MathProblem from "../components/Week2/Clase_2/MathProblem"
+import MainComponent from "../components/Week2/Clase_3/MainComponent"
 export const useSelectedComponent = () => {
     const [selectedComponent, setSelectedComponent] = useState(null)
 
@@ -11,8 +12,7 @@ export const useSelectedComponent = () => {
           //const ComponentTwo = <h1>Component Two</h1>
           setSelectedComponent(<MathProblem/>)
         } else {
-          const ComponentThree = <h1>Component Three</h1>
-          setSelectedComponent(ComponentThree)
+          setSelectedComponent(<MainComponent />)
         }
     }
 
