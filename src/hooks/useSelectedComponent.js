@@ -1,5 +1,5 @@
 import { useState } from "react"
-import MathProblem from "../components/Week2/MathProblem"
+import MathProblem from "../components/Week2/Clase_2/MathProblem"
 export const useSelectedComponent = () => {
     const [selectedComponent, setSelectedComponent] = useState(null)
 
