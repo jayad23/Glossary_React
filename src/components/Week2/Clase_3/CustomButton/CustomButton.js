@@ -1,22 +1,14 @@
 import React from 'react'
+import styles from "./styles.module.css";
 
 const CustomButton = ({ buttonText }) => {
   return (
-    <div style={{ marginTop: "20px"}}>
-        <button 
-            style={{ 
-                width: "100%", 
-                backgroundColor: "purple", 
-                padding: "10px",
-                border: "none",
-                borderRadius: "6px",
-                color:"white",
-                fontWeight: "bolder",
-                textTransform: "uppercase",
-                fontSize: "20px"
-            }}>
-                { buttonText }
-            </button>
+    <div className={styles['btn-container']}>
+        <button
+          className={styles['gral-btn']}
+          >
+          { buttonText }
+        </button>
     </div>
   )
 }

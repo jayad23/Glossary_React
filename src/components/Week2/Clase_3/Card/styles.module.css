@@ -1,12 +1,12 @@
 .card-container {
     border: none;
-    width: 500px;
+    width: 400px;
     height: auto;
     background-color: rgb(252, 250, 250);
     border-radius: 10px;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.32); 
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.32);
-    padding-bottom: 30px
+    padding: 60px 50px;
 };
 
 .logo-container{

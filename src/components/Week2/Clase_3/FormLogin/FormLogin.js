@@ -17,6 +17,10 @@ const FormLogin = () => {
         <CustomButton 
           buttonText="ingresar"
         />
+        <div>
+          <p>¿Aun no tienes cuenta?</p>
+          <a href="/">Regístrate aquí</a>
+        </div>
     </form>
   )
 }

@@ -11,10 +11,16 @@
 }
 
 .input-tag {
-    height: 30px;
+    height: 35px;
     border: none;
     border-radius: 6px;
     background-color: rgb(199, 198, 198);
     padding-left: 10px;
     outline: none;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.32); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.32);
+}
+
+.input-tag:focus{
+    border: 1px solid blue;
 }
