@@ -14,6 +14,10 @@ export const glossary = {
         {
             day: 3,
             topic: "Práctica Integradora"
+        },
+        {
+            day: 4,
+            topic: "Mesa"
         }
     ]
 }
