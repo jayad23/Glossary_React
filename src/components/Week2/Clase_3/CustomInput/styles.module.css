@@ -14,11 +14,11 @@
     height: 35px;
     border: none;
     border-radius: 6px;
-    background-color: rgb(199, 198, 198);
+    background-color: rgb(255, 255, 255);
     padding-left: 10px;
     outline: none;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.32); 
-    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.32);
+    -webkit-box-shadow: 5px 5px 0px -2px rgba(0,0,0,0.17); 
+    box-shadow: 5px 5px 0px -2px rgba(0,0,0,0.17);
 }
 
 .input-tag:focus{
