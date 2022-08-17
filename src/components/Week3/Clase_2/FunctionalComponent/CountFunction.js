@@ -10,12 +10,11 @@ const CountFunction = ({ styles }) => {
     }
 
     const addition = () => {
-        setCuenta(prevState => prevState + 1);
+        setCuenta(prevState => prevState < (names.length - 1) ? prevState + 1 : prevState);
         if(cuenta < 1){
             let newName = "Katyana";
             let collectionNames = names.filter((name) => name !== "Kike")
-            collectionNames = [newName, ...collectionNames]
-            setNames(collectionNames);
+            setNames([newName, ...collectionNames]);
         }
     }
 
