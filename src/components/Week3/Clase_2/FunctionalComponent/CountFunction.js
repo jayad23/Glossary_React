@@ -4,17 +4,19 @@ import clsx from 'clsx'
 const CountFunction = ({ styles }) => {
     const [cuenta, setCuenta] = useState(0);
     const [names, setNames] = useState(["Kike", "Verónica", "Katia", "Daniel"])
-    const [valores, setValores] = useState({id: 1, nombre: "Gustavo"})
-    const { id, nombre } = valores;
-    console.log(id, nombre)
+
     const substraction = () => {
         setCuenta( cuenta - 1)
     }
 
     const addition = () => {
-        setCuenta(prevState => prevState + 1)
-        setNames([names[0] = "Katyana", ...names])
-        
+        setCuenta(prevState => prevState + 1);
+        if(cuenta < 1){
+            let newName = "Katyana";
+            let collectionNames = names.filter((name) => name !== "Kike")
+            collectionNames = [newName, ...collectionNames]
+            setNames(collectionNames);
+        }
     }
 
     return (
