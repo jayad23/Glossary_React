@@ -1,0 +1,52 @@
+.gral-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+.count-title{
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(46, 46, 46);
+    color: #eee;
+}
+
+.btn-minus{
+    position: absolute;
+    left: 42%;
+    bottom: 0;
+    color: crimson;
+    font-size: 40px;
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: 1px solid rgb(46, 46, 46);
+    cursor:pointer;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.btn-plus{
+    position: absolute;
+    right: 42%;
+    bottom: 0;
+    font-size: 40px;
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    color: rgb(123, 201, 7);
+    border-radius: 100%;
+    border: 1px solid rgb(46, 46, 46);
+    cursor:pointer;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
