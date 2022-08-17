@@ -17,11 +17,10 @@
     color: #eee;
 }
 
-.btn-minus{
+.btn-gral{
     position: absolute;
-    left: 42%;
     bottom: 0;
-    color: crimson;
+    color: rgb(46, 46, 46);
     font-size: 40px;
     background-color: white;
     width: 70px;
@@ -34,19 +33,10 @@
     }
 }
 
+.btn-minus{
+    left: 42%;
+}
+
 .btn-plus{
-    position: absolute;
     right: 42%;
-    bottom: 0;
-    font-size: 40px;
-    background-color: white;
-    width: 70px;
-    height: 70px;
-    color: rgb(123, 201, 7);
-    border-radius: 100%;
-    border: 1px solid rgb(46, 46, 46);
-    cursor:pointer;
-    &:hover{
-        transform: scale(1.1);
-    }
 }
