@@ -1,15 +1,15 @@
 export const glossary = {
     weeks: [
-        "Semana 3"
+        "Semana 4"
     ],
     data: [
         {
             day: 1,
-            topic: "Componentes Dinámicos"
+            topic: "Ciclos de Vida"
         },
         {
             day: 2,
-            topic: "Componentes con Estado"
+            topic: "Ciclos de Vida P2"
         },
         {
             day: 3,
