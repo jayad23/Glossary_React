@@ -10,10 +10,6 @@ const MainComponent = () => {
         <Card cardTitle={"Login"}>
             <FormLogin />
         </Card>
-        {/** COMPONENTE REGISTER */}
-        <Card cardTitle={"Register"}>
-          <FormRegister />
-        </Card>
     </div>
   )
 }
