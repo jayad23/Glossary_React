@@ -1,15 +1,15 @@
 export const glossary = {
     weeks: [
-        "Semana 4"
+        "Semana 5"
     ],
     data: [
         {
             day: 1,
-            topic: "Ciclos de Vida"
+            topic: "Repaso General"
         },
         {
             day: 2,
-            topic: "Ciclos de Vida P2"
+            topic: "API Requests"
         },
         {
             day: 3,
