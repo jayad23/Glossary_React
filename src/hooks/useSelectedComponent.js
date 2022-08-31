@@ -1,6 +1,6 @@
 import { useState } from "react"
 import FirstClass from "../components/Week4/Class1/Class1"
-import SecondClass from "../components/Week3/Clase_2/App"
+import SecondClass from "../components/Week4/Class2/Class2"
 import ThirdClass from "../components/Week3/Clase_3/App"
 import Mesa from "../components/Week3/Mesa/App"
 
