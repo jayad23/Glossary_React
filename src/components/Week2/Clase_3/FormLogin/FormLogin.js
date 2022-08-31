@@ -1,18 +1,23 @@
 import React from 'react'
 import CustomInput from '../CustomInput/CustomInput'
 import CustomButton from '../CustomButton/CustomButton'
-const FormLogin = () => {
+const FormLogin = (props) => {
+  const { handleSubmit } = props;
   return (
-    <form>
-        <CustomInput 
+    <form onSubmit={handleSubmit}>
+        <CustomInput  
           labelText="E-mail"
           type="text"
+          fieldValue="email"
           placeholder="example@example.com"
+          {...props}
         />
         <CustomInput 
           labelText="Password"
           type="password"
+          fieldValue="password"
           placeholder="************"
+          {...props}
         />
         <CustomButton 
           buttonText="ingresar"

@@ -5,6 +5,7 @@ const CustomButton = ({ buttonText }) => {
   return (
     <div className={styles['btn-container']}>
         <button
+          type="submit"
           className={styles['gral-btn']}
           >
           { buttonText }
