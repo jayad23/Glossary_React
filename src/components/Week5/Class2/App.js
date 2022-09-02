@@ -35,14 +35,15 @@ const App = () => {
     }
   }
 
-  const getValidationSchema = () => {
-    return Yup.lazy(() =>
+  const getValidationSchema = () => (
+    Yup.lazy(() =>
     Yup.object().shape({
-      email: Yup.string()
+      email: 
+        Yup.string()
         .email("Correo electrónico invalido")
         .required("Campo Obligatorio"),
-        password: Yup
-        .string()
+      password: 
+        Yup.string()
         .required('Campo Obligatorio')
         .matches(
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\\*])(?=.{8,})/,
@@ -50,7 +51,7 @@ const App = () => {
         ),
     })
     )
-  }
+  )
   
   const onSubmit = (data) => {
     console.log(data);
