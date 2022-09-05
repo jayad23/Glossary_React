@@ -1,20 +1,17 @@
 import React from 'react'
+import styled from 'styled-components';
 import {TextField, Grid, Button, Typography} from '@mui/material';
 import {Stack} from '@mui/system';
 import { useFormikHook } from "./useFormik";
 
 
-const App = () => {
+const FormLogin = () => {
   const {isSent, setFieldValue, errors, handleSubmit} = useFormikHook();
   return (
-    <div style={formContainerStyles}>
-      <h1>Class 3: Repaso Gral</h1>
-      {
-        isSent ? (
-          <Typography variant="h5" color="primary">Formulario enviado exitosamente</Typography>
-        ) : (
-          <form style={formStyles} onSubmit={handleSubmit}>
-            <Stack spacing={1}>
+    <Container>
+      <Typography color="secondary" variant="h5" sx={{mb: 2, bgcolor: "#eee", p: 1, borderRadius: "10px", fontWeight: "bolder"}}>Por favor, regístrate para continuar: </Typography>
+      <FormWrap FormWrap onSubmit={handleSubmit}>
+            <Stack spacing={2}>
               <TextField
                 fullWidth 
                 error={errors?.email && true}
@@ -40,14 +37,29 @@ const App = () => {
                 </Grid>
               </Grid>
             </Stack>
-      </form>
-        )
-      }
-    </div>
+          </FormWrap>
+    </Container>
   )
 }
 
-const formContainerStyles = {justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center"}
-const formStyles = { width: "20%", padding: "20px", border: "1px solid gray", borderRadius: "5px"};
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background-image: url("https://ocean.si.edu/sites/default/files/styles/article_main_image/public/25691336465_982637ea03_o.jpg.webp?itok=i62mC4wO");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
 
-export default App
+const FormWrap = styled.form`
+  width: 20%;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+`;
+
+export default FormLogin
