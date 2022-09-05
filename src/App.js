@@ -1,10 +1,42 @@
 import { useState} from "react";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from "./views/Home/Home";
+import About from "./views/About/About";
+import Contact from "./views/Contact/Contact";
+import Error from "./views/Error/Error";
 
 function App() {
-  return <Documentation/>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="*" element={<Error/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const Documentation = () => {
