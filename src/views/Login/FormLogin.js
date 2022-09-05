@@ -3,41 +3,48 @@ import styled from 'styled-components';
 import {TextField, Grid, Button, Typography} from '@mui/material';
 import {Stack} from '@mui/system';
 import { useFormikHook } from "./useFormik";
+import { Loader } from "../../components/Loader/Loader";
 
 
-const FormLogin = () => {
-  const {isSent, setFieldValue, errors, handleSubmit} = useFormikHook();
+const FormLogin = ({ isLoading, setIsLoading, setAuthenticated}) => {
+  const { setFieldValue, errors, handleSubmit} = useFormikHook({setAuthenticated, setIsLoading});
   return (
     <Container>
-      <Typography color="secondary" variant="h5" sx={{mb: 2, bgcolor: "#eee", p: 1, borderRadius: "10px", fontWeight: "bolder"}}>Por favor, regístrate para continuar: </Typography>
-      <FormWrap FormWrap onSubmit={handleSubmit}>
-            <Stack spacing={2}>
-              <TextField
-                fullWidth 
-                error={errors?.email && true}
-                helperText={errors?.email ? errors.email : "Ingrese su correo electrónico"}
-                label="Correo Electrónico"
-                onChange={(e) => setFieldValue("email", e.target.value)}
-                
-              />
-              <TextField
-                fullWidth
-                type="password"
-                error={errors?.password && true}
-                helperText={errors?.password ? errors.password : "Ingrese su contraseña"}
-                label="Contraseña"
-                onChange={(e) => setFieldValue("password", e.target.value)}
-              />
-              <Grid container sm={12}>
-                <Grid xs={6} textAlign="start">
-                  <Button variant="outlined" sx={{ width: "90%"}}>Volver</Button>
+      <Typography color="white" variant="h5" sx={{mb: 2, p: 1, fontWeight: "bolder"}}>Por favor, regístrate para continuar: </Typography>
+        {
+          isLoading ? (
+            <Loader />
+          ): (
+            <FormWrap FormWrap onSubmit={handleSubmit}>
+              <Stack spacing={2}>
+                <TextField
+                  fullWidth 
+                  error={errors?.email && true}
+                  helperText={errors?.email ? errors.email : "Ingrese su correo electrónico"}
+                  label="Correo Electrónico"
+                  onChange={(e) => setFieldValue("email", e.target.value)}
+                  
+                />
+                <TextField
+                  fullWidth
+                  type="password"
+                  error={errors?.password && true}
+                  helperText={errors?.password ? errors.password : "Ingrese su contraseña"}
+                  label="Contraseña"
+                  onChange={(e) => setFieldValue("password", e.target.value)}
+                />
+                <Grid container sm={12} item>
+                  <Grid xs={6} textAlign="start" item>
+                    <Button variant="outlined" sx={{ width: "90%"}}>Volver</Button>
+                  </Grid>
+                  <Grid sm={6} textAlign="end" item>
+                    <Button type="submit" variant="contained" color="info" sx={{ width: "90%"}}>Enviar</Button>
+                  </Grid>
                 </Grid>
-                <Grid sm={6} textAlign="end">
-                  <Button type="submit" variant="contained" color="info" sx={{ width: "90%"}}>Enviar</Button>
-                </Grid>
-              </Grid>
-            </Stack>
-          </FormWrap>
+              </Stack>
+            </FormWrap>
+          )
+        }
     </Container>
   )
 }

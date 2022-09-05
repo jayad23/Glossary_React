@@ -1,10 +1,8 @@
 /* eslint-disable no-useless-escape */
-import { useState} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-export const useFormikHook = () => {
-  const [isSent, setIsSent] = useState(false);
+export const useFormikHook = ({ setAuthenticated, setIsLoading}) => {
     const getInitialValues = () => {
         return {
           email: "",
@@ -31,7 +29,12 @@ export const useFormikHook = () => {
       )
       
       const onSubmit = (data) => {
-        setIsSent(true);
+        setIsLoading(true);
+        setTimeout(() => {
+          setAuthenticated(true);
+          setIsLoading(false);
+        }, 3000);
+        
       }
     
       const {values, setFieldValue, errors, handleSubmit} = useFormik({
@@ -47,6 +50,5 @@ export const useFormikHook = () => {
         setFieldValue, 
         errors, 
         handleSubmit,
-        isSent
       }
 }
