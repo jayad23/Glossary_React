@@ -1,8 +1,10 @@
 /* eslint-disable no-useless-escape */
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 export const useFormikHook = ({ setAuthenticated, setIsLoading}) => {
+  const navigate = useNavigate();
     const getInitialValues = () => {
         return {
           email: "",
@@ -33,6 +35,7 @@ export const useFormikHook = ({ setAuthenticated, setIsLoading}) => {
         setTimeout(() => {
           setAuthenticated(true);
           setIsLoading(false);
+          navigate("/home");
         }, 3000);
         
       }

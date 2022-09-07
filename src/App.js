@@ -4,15 +4,31 @@ import Home from "./views/Home/Home";
 import About from "./views/About/About";
 import Contact from "./views/Contact/Contact";
 import Error from "./views/Error/Error";
+import Login from "./views/Login/FormLogin"
+import Protected from "./components/Protected/Protected";
+import Card from "./views/Card/Card";
 
 function App() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const loginProps = {
+    isLoading,
+    setIsLoading,
+    setAuthenticated
+  }
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Home/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="*" element={<Error/>}/>
+        <Route exact path="/login" element={<Login {...loginProps}/>}/>
+        <Route element={<Protected authenticated={authenticated}/>}>
+          <Route path="/home" element={<Home/>} />
+          <Route path="/character/:id" element={<Card/>}/>
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="*" element={<Error/>}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   )
