@@ -1,11 +1,10 @@
 import { useState} from "react";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Home from "./views/Home/Home";
 import About from "./views/About/About";
 import Contact from "./views/Contact/Contact";
 import Error from "./views/Error/Error";
 import Login from "./views/Login/FormLogin"
-import Protected from "./components/Protected/Protected";
 import Card from "./views/Card/Card";
 
 function App() {
@@ -21,14 +20,18 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/login" element={<Login {...loginProps}/>}/>
-        <Route element={<Protected authenticated={authenticated}/>}>
-          <Route path="/home" element={<Home/>} />
-          <Route path="/character/:id" element={<Card/>}/>
-          <Route path="/about" element={<About/>} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="*" element={<Error/>}/>
-        </Route>
+        {
+          authenticated ? (
+            <>
+              <Route path="/home" element={<Home/>} />
+              <Route path="/character/:id" element={<Card/>}/>
+              <Route path="/about" element={<About/>} />
+              <Route path="/contact" element={<Contact/>} />
+              <Route path="*" element={<Error/>}/>
+            </>
+          ) : (<Route exact path="/login" element={<Login {...loginProps}/>}/>)
+        }        
+        <Route path="*" element={<Navigate to="/login" replace />}/>
       </Routes>
     </BrowserRouter>
   )
