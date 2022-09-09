@@ -24,7 +24,7 @@ function App() {
           authenticated ? (
             <>
               <Route path="/home" element={<Home/>} />
-              <Route path="/character/:id" element={<Card/>}/>
+              <Route path="/character/:username" element={<Card/>}/>
               <Route path="/about" element={<About/>} />
               <Route path="/contact" element={<Contact/>} />
               <Route path="*" element={<Error/>}/>
