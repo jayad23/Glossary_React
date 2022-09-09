@@ -12,7 +12,8 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
-const Home=() => {
+const Home=({setAuthenticated}) => {
+    const [anchorElNav, setAnchorElNav]=useState(null);
     const [data, setData]=useState(null);
     const [loading, setLoading]=useState(false);
 
@@ -44,7 +45,7 @@ const Home=() => {
                             component="div"
                             sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
                         >
-                            MUI
+                            Navigation bar
                         </Typography>
                         <Search>
                             <SearchIconWrapper>
