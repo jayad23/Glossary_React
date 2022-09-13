@@ -3,24 +3,17 @@ import axios from 'axios'
 import {Loader} from '../../components/Loader/Loader'
 import {Container} from "../../gralStyledComponents/gralStyledComponents";
 import CardList from '../ListofCards/CardList';
+import {useFetchDataGithub} from "../../hooks/useFetchDataGithub"
+const url="https://api.github.com/users";
 
 const Home=({setAuthenticated}) => {
-    const [data, setData]=useState(null);
-    const [loading, setLoading]=useState(false);
-
-    useEffect(() => {
-        setLoading(true);
-        axios.get("https://api.github.com/users")
-            .then(res => setData(res.data))
-            .then(() => setLoading(false))
-            .catch((err) => console.log(err))
-    }, [])
+    const {data, isLoading, error}=useFetchDataGithub(url)
 
     return (
         <>
             <Container>
                 {
-                    loading? (
+                    isLoading? (
                         <Loader />
                     ):(
                         data&&data.map(char => (

@@ -18,6 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Container } from "../../gralStyledComponents/gralStyledComponents";
 import {Loader} from "../../components/Loader/Loader";
+import { useFetchDataGithub } from "../../hooks/useFetchDataGithub";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -32,28 +33,19 @@ const ExpandMore = styled((props) => {
 
 const CardComponent = () => {
   const [expanded, setExpanded] = useState(false);
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
-
   const { username } = useParams();
+  const url = `https://api.github.com/users/${username}`;
+  const { data, isLoading, error } = useFetchDataGithub(url);
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  useEffect(() => {
-    setLoading(true);
-    axios.get(`https://api.github.com/users/${username}`)
-      .then(res => setData(res.data))
-      .then(() => setLoading(false))
-      .catch(err => navigate("/error"))
-  }, [username, navigate])
-
   return (
     <Container>
       {
-        loading ? (
+        isLoading ? (
           <Loader />
         ): (
           <Card sx={{ maxWidth: 345 }}>
