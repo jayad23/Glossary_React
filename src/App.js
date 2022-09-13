@@ -6,6 +6,7 @@ import Contact from "./views/Contact/Contact";
 import Error from "./views/Error/Error";
 import Login from "./views/Login/FormLogin"
 import Card from "./views/Card/Card";
+import NavLayout from "./components/Layout/NavLayout";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -23,10 +24,12 @@ function App() {
         {
           authenticated ? (
             <>
-              <Route path="/home" element={<Home setAuthenticated={setAuthenticated}/>} />
-              <Route path="/character/:username" element={<Card/>}/>
-              <Route path="/about" element={<About/>} />
-              <Route path="/contact" element={<Contact/>} />
+              <Route element={<NavLayout/>}>
+                <Route path="/home" element={<Home setAuthenticated={setAuthenticated}/>} />
+                <Route path="/character/:username" element={<Card/>}/>
+                <Route path="/about" element={<About/>} />
+                <Route path="/contact" element={<Contact/>} />
+              </Route>
               <Route path="*" element={<Error/>}/>
             </>
           ) : (<Route exact path="/login" element={<Login {...loginProps}/>}/>)

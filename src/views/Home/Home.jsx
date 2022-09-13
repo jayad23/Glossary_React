@@ -1,19 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Loader} from '../../components/Loader/Loader'
-import {Search, SearchIconWrapper, StyledInputBase, appBarStyles} from "./HomeStyled";
 import {Container} from "../../gralStyledComponents/gralStyledComponents";
 import CardList from '../ListofCards/CardList';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 
 const Home=({setAuthenticated}) => {
-    const [anchorElNav, setAnchorElNav]=useState(null);
     const [data, setData]=useState(null);
     const [loading, setLoading]=useState(false);
 
@@ -27,38 +18,6 @@ const Home=({setAuthenticated}) => {
 
     return (
         <>
-            <Box sx={appBarStyles}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            sx={{mr: 2}}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
-                        >
-                            Navigation bar
-                        </Typography>
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="Search…"
-                                inputProps={{'aria-label': 'search'}}
-                            />
-                        </Search>
-                    </Toolbar>
-                </AppBar>
-            </Box>
             <Container>
                 {
                     loading? (

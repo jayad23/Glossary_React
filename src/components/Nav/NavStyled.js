@@ -1,5 +1,21 @@
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import styledC from 'styled-components';
+import { NavLink } from 'react-router-dom';
+
+export const Link = styled(NavLink)`
+  text-decoration: none;
+  &[aria-current]{
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+  }
+  &:focus{
+    color: white;
+  }
+`;
 
 export const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -48,4 +64,10 @@ export const appBarStyles = {
   position: "fixed", 
   width: "100%",
 }
-  
+
+export const appBarStylesMargin = {
+  flexGrow: 1, 
+  position: "fixed", 
+  width: "100%",
+  marginTop: "-22px"
+}
