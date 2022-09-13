@@ -7,27 +7,12 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav]=useState(null);
     const location = useLocation();
-    const styledNav = ({isActive}) => {
-        if(isActive){
-            return {
-                borderBottom: "2px solid blue",
-                paddingBottom: "5px",
-                textDecoration: "none",
-                color: "white",
-                fontWeight: "bolder"
-            }
-        }
-        return {
-            textDecoration: "none"
-        }
-    }
-    console.log(location)
+
   return (
     <Box sx={location.pathname === "/home" ? appBarStyles : appBarStylesMargin}>
                 <AppBar position="static">
