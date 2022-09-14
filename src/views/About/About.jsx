@@ -8,7 +8,7 @@ const About=() => {
     const [name, setName]=useState("")
     const {open, handleOpen, handleClose}=useOpenModal()
     const navigate=useNavigate();
-    console.log("Open desde About", open)
+
     const handleSubmit=(e) => {
         e.preventDefault();
         navigate("/contact", {state: {name}});

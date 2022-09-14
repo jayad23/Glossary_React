@@ -9,6 +9,7 @@ import {
 import {Link} from 'react-router-dom';
 
 const CardList=({char}) => {
+    console.log("CARD LIST CHILD 2")
     return (
         <Card sx={{maxWidth: 345}}>
             <CardMedia
@@ -33,4 +34,4 @@ const CardList=({char}) => {
     )
 }
 
-export default CardList
+export default React.memo(CardList) 

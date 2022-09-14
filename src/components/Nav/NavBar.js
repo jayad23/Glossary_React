@@ -7,14 +7,20 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'; 
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav]=useState(null);
     const location = useLocation();
+    const evaluator = (param) => {
+        const result = location.pathname.includes(param)
+        return result;
+    }
+    const homePath = location.pathname.includes("home");
+    const dynamicPath = location.pathname.includes("character")
 
   return (
-    <Box sx={location.pathname === "/home" ? appBarStyles : appBarStylesMargin}>
+    <Box >
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton

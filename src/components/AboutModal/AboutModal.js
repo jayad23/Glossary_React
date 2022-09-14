@@ -17,7 +17,6 @@ const style = {
 };
 
 const AboutModal = ({open, handleClose})=> {
-  console.log("Open desde Modal", open)
   return (
     <div>
       <Modal
