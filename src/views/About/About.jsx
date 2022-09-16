@@ -1,34 +1,17 @@
-import React, {useState, Fragment} from 'react'
-import {useNavigate} from 'react-router-dom'
-import AboutModal from "../../components/AboutModal/AboutModal"
-import {Button} from '@mui/material'
-import {useOpenModal} from "../../hooks/useOpenModal"
-import NavBar from '../../components/Nav/NavBar'
+import React from 'react'
+import {useGetData} from "../../hooks/useGetData"
 
 const About=() => {
-    const [name, setName]=useState("")
-    const {open, handleOpen, handleClose}=useOpenModal()
-    const navigate=useNavigate();
-
-    const handleSubmit=(e) => {
-        e.preventDefault();
-        navigate("/contact", {state: {name}});
-    }
+    const {userInfo}=useGetData("LukaBrc")
     return (
         <div>
             <h1>Vista About</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    placeholder='ingresa tu nombre'
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <button type="submit">Enviar</button>
-            </form>
-            <button onClick={() => navigate("/")}>GO BACK</button>
-            <Button size={"large"} variant="contained" color="primary" onClick={handleOpen}>ABRIR MODAL</Button>
-            <AboutModal open={open} handleClose={handleClose} />
+            <div>
+                <img src={userInfo?.avatar_url} alt={userInfo?.name} />
+                <h2>{userInfo?.name}</h2>
+            </div>
         </div>
     )
 }
 
-export default About
+export default React.memo(About)

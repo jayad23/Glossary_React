@@ -1,11 +1,12 @@
 import React, {Fragment} from 'react'
 import NavBar from "../components/Nav/NavBar"
+import {Outlet} from 'react-router-dom'
 //children NODO
-const NavbarLayout=({children}) => {
+const NavbarLayout=() => {
   return (
     <Fragment>
       <NavBar />
-      {children}
+      <Outlet />
     </Fragment>
   )
 }
