@@ -4,37 +4,19 @@ import Home from "./views/Home/Home";
 import About from "./views/About/About";
 import Contact from "./views/Contact/Contact";
 import Error from "./views/Error/Error";
-import Login from "./views/Login/FormLogin"
 import Card from "./views/Card/Card";
-import NavLayout from "./components/Layout/NavLayout";
+import NavbarLayout from "./Layout/NavbarLayout";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const loginProps = {
-    isLoading,
-    setIsLoading,
-    setAuthenticated
-  }
-
   return (
     <BrowserRouter>
       <Routes>
-        {
-          authenticated ? (
-            <>
-              <Route element={<NavLayout/>}>
-                <Route path="/home" element={<Home setAuthenticated={setAuthenticated}/>} />
-                <Route path="/character/:username" element={<Card/>}/>
-                <Route path="/about" element={<About/>} />
-                <Route path="/contact" element={<Contact/>} />
-              </Route>
-              <Route path="*" element={<Error/>}/>
-            </>
-          ) : (<Route exact path="/login" element={<Login {...loginProps}/>}/>)
-        }        
-        <Route path="*" element={<Navigate to="/login" replace />}/>
+        <Route element={<NavbarLayout />}>
+          <Route path="/home" element={<Home/>} />
+          <Route path="/character/:username" element={<Card/>}/>
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact/>} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

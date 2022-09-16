@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, Fragment} from 'react'
 import {useNavigate} from 'react-router-dom'
 import AboutModal from "../../components/AboutModal/AboutModal"
 import {Button} from '@mui/material'
 import {useOpenModal} from "../../hooks/useOpenModal"
+import NavBar from '../../components/Nav/NavBar'
 
 const About=() => {
     const [name, setName]=useState("")
