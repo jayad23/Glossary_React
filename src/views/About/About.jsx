@@ -1,17 +1,14 @@
 import React from 'react'
-import {useGetData} from "../../hooks/useGetData"
+import {Container} from "../../gralStyledComponents/gralStyledComponents";
 
 const About=() => {
-    const {userInfo}=useGetData("LukaBrc")
     return (
-        <div>
-            <h1>Vista About</h1>
-            <div>
-                <img src={userInfo?.avatar_url} alt={userInfo?.name} />
-                <h2>{userInfo?.name}</h2>
-            </div>
-        </div>
+        <Container>
+            <section>
+                <h1>About View</h1>
+            </section>
+        </Container>
     )
 }
 
-export default React.memo(About)
+export default About

@@ -40,7 +40,7 @@ const NavBar = () => {
                         >
                         <nav>
                             <ul style={{ display: "flex", gap: "20px"}}>
-                                <Link to="/home" >Home</Link>
+                                <Link to="/" >Home</Link>
                                 <Link to="/about" >About</Link>
                                 <Link to="/contact">Contact</Link>
                             </ul>

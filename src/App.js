@@ -4,7 +4,6 @@ import Home from "./views/Home/Home";
 import About from "./views/About/About";
 import Contact from "./views/Contact/Contact";
 import Error from "./views/Error/Error";
-import Card from "./views/Card/Card";
 import NavbarLayout from "./Layout/NavbarLayout";
 
 function App() {
@@ -12,8 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<NavbarLayout />}>
-          <Route path="/home" element={<Home/>} />
-          <Route path="/character/:username" element={<Card/>}/>
+          <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
         </Route>
